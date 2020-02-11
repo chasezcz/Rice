@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     # 仓库相关
-    path('warehouse/getDeliveryInfo/', views.get_delivery_info),
-    path('warehouse/delivery/', views.delivery),
-    path('warehouse/collect/', views.collect)
+    path('api/warehouse/getDeliveryInfo/', views.get_delivery_info),
+    path('api/warehouse/delivery/', views.delivery),
+    path('api/warehouse/collect/', views.collect)
 ]

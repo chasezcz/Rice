@@ -2,7 +2,7 @@ from django.http import HttpResponse
 
 
 def get_delivery_info(request):
-    return HttpResponse()
+    return HttpResponse("yes")
 
 
 def delivery(request):
