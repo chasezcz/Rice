@@ -22,3 +22,10 @@ export function collect(data) {
     data
   })
 }
+
+export function statisticsToday() {
+  return request({
+    url: '/warehouse/statisticsToday',
+    method: 'GET'
+  })
+}

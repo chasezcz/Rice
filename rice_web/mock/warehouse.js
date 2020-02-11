@@ -129,5 +129,61 @@ export default [
         data: 'success'
       }
     }
+  },
+  {
+    url: '/warehouse/statisticsToday',
+    type: 'get',
+    response: _ => {
+      var data = {
+        "statisticsByWorker": [
+          {
+            "name": "张三1",
+            "products": [
+              {
+                "label": "啤酒1",
+                "number": 200
+              },
+              {
+                "label": "啤酒2",
+                "number": 100
+              }
+            ]
+          },
+          {
+            "name": "张三2",
+            "products": [
+              {
+                "label": "啤酒11",
+                "number": 200
+              },
+              {
+                "label": "啤酒22",
+                "number": 100
+              }
+            ]
+          },
+          {
+            "name": "张三3",
+            "products": [
+              {
+                "label": "啤酒31",
+                "number": 200
+              },
+              {
+                "label": "啤酒32",
+                "number": 100
+              }
+            ]
+          },
+        ],
+        "statisticsByProduct": [
+
+        ]
+      }
+      return {
+        code: 20000,
+        data: data
+      }
+    }
   }
 ]

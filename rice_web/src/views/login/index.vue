@@ -12,7 +12,7 @@
         </span>
         <span>
           <el-radio v-model="loginForm.username" label="warehouseAdmin">仓库管理</el-radio>
-          <el-radio v-model="loginForm.username" label="boss">公司管理</el-radio>
+          <el-radio v-model="loginForm.username" label="admin">公司管理</el-radio>
         </span>
       </el-form-item>
 
@@ -132,11 +132,7 @@ export default {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm)
             .then(() => {
-              if (this.loginForm.username === 'boss') {
-                this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
-              } else {
-                this.$router.push({ path: '/warehouse', query: this.otherQuery })
-              }
+              this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
               this.loading = false
             })
             .catch(() => {
