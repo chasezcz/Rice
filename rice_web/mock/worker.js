@@ -1,32 +1,31 @@
 export default [
   {
-    url: '/product/all',
+    url: '/worker/all',
     type: 'get',
     response: _ => {
-      var products = [
+      var workers = [
         {
-          "label": "青岛啤酒",
-          "status": "ON_SALE",
+          "name": "青岛啤酒",
+          "status": "ON",
           "owned_number": 5020,
-          "last_supple_date": "2019-05-04 12:00:00",
+          "last_work_date": "2019-05-04 12:00:00",
           "stardand_price": 20
         },
         {
-          "label": "青岛啤酒3",
-          "status": "ON_SALE",
+          "name": "青岛啤酒3",
+          "status": "OFF",
           "owned_number": 50320,
-          "last_supple_date": "2019-05-04 12:00:00",
-          "stardand_price": 203
+          "last_work_date": "2019-05-04 12:00:00",
         },
       ]
       return {
           code: 20000,
-          data: products
+          data: workers
       }
     }
   },
   {
-    url: '/product/add',
+    url: '/worker/add',
     type: 'POST',
     response: _ => {
       return {
