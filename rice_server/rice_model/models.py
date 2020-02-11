@@ -19,7 +19,7 @@ class Worker(models.Model):
     # 最近工作的时间
     last_work_date = models.DateField()
     # 状态 就职/离职
-    status
+    status = models.CharField(max_length=10)
 
 
 # product
