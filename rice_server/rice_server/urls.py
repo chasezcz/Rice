@@ -18,8 +18,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # 用户相关
+    path('prod-api/user/login', views.user_login),
+    path('prod-api/user/info', views.user_info),
     # 仓库相关
-    path('api/warehouse/getDeliveryInfo/', views.get_delivery_info),
-    path('api/warehouse/delivery/', views.delivery),
-    path('api/warehouse/collect/', views.collect)
+    path('prod-api/warehouse/getDeliveryInfo/', views.get_delivery_info),
+    path('prod-api/warehouse/delivery/', views.delivery),
+    path('prod-api/warehouse/collect/', views.collect)
 ]

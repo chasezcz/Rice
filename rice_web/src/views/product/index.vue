@@ -2,7 +2,7 @@
   <div style="padding: 10px 20px 0 20px">
     <div style="padding: 0 0 20px 0">
       <h1>产品种类数量：{{ list.length }}</h1>
-      <el-button type="primary"  @click="dialogVisible = true">添加新产品</el-button>
+      <el-button type="primary" @click="dialogVisible = true">添加新产品</el-button>
     </div>
     <el-table :data="list" border fit highlight-current-row class="productTable">
       <el-table-column align="center" label="序号">
@@ -60,9 +60,10 @@
       title="操作"
       :visible.sync="dialogVisible"
       width="30%"
-      :before-close="handleClose">
+      :before-close="handleClose"
+    >
       <div>
-        <el-form :model="productData" ref="productData" label-width="100px">
+        <el-form ref="productData" :model="productData" label-width="100px">
           <el-form-item label="产品名称" required>
             <el-input v-model="productData.label" />
           </el-form-item>
@@ -73,10 +74,7 @@
             <el-input v-model="productData.owned_number" />
           </el-form-item>
           <el-form-item label="最后一次进货" required>
-            <el-date-picker type="date" placeholder="选择日期" v-model="productData.last_supple_date" style="width: 100%;"></el-date-picker>
-          </el-form-item>
-          <el-form-item label="最后一次进货" required>
-            <el-date-picker type="date" placeholder="选择日期" v-model="productData.last_supple_date" style="width: 100%;"></el-date-picker>
+            <el-date-picker v-model="productData.last_supple_date" type="date" placeholder="选择日期" style="width: 100%;" />
           </el-form-item>
           <el-radio-group v-model="productData.status">
             <el-radio label="ON_SALE">销售中</el-radio>
@@ -96,7 +94,7 @@
 <script>
 import { getAllProducts, addProduct } from '@/api/product'
 export default {
-   filters: {
+  filters: {
     statusFilter(status) {
       const statusMap = {
         published: 'ON_SALE',
@@ -129,14 +127,14 @@ export default {
   methods: {
     handleCreate(data) {
       addProduct(data).then(response => {
-        if(response.code == 20000) {
+        if (response.code === 20000) {
           this.$message({
             message: '操作成功',
             type: 'success'
           })
         } else {
           this.$message({
-            message: '操作失败'+response.detail,
+            message: '操作失败' + response.detail,
             type: 'warning'
           })
         }
@@ -144,7 +142,11 @@ export default {
     },
     confirmEdit(row) {
       this.productData = row
-      this.dialogVisible=true
+      this.dialogVisible = true
+    },
+    handleClose() {
+      this.productData = {}
+      this.dialogVisible = false
     }
   }
 }

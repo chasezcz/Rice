@@ -18,8 +18,8 @@ class Worker(models.Model):
     register_date = models.DateField()
     # 最近工作的时间
     last_work_date = models.DateField()
-    # 是否在职
-    is_office = models.BooleanField(default=True)
+    # 状态 就职/离职
+    status
 
 
 # product
