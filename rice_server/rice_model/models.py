@@ -19,16 +19,16 @@ class Worker(models.Model):
     # 最近工作的时间
     last_work_date = models.DateField()
     # 状态 就职/离职
-    status = models.CharField(max_length=10)
+    status = models.CharField(max_length=10, default="ON")
 
 
 # product
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
     # 产品名称
-    name = models.CharField(max_length=20)
+    label = models.CharField(max_length=20)
     # 状态 有 在销售，缺货，停售
-    status = models.CharField(max_length=10)
+    status = models.CharField(max_length=10, default="ON_SALE")
     # 仓库中拥有的数量
     owned_number = models.IntegerField()
     # 最近一次进货时间

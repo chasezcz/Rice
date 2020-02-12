@@ -11,7 +11,7 @@ export function addProduct(data) {
   return request({
       url: 'product/add',
       method: 'get',
-      data
+      params: { data }
   })
 }
 
@@ -19,6 +19,6 @@ export function updateProduct(data) {
   return request({
     url: 'product/update',
     method: 'get',
-    data
+    params: { data }
   })
 }

@@ -114,8 +114,8 @@ export default {
     })
   },
   methods: {
-    handleCreate(data) {
-      addWorker(data).then(response => {
+    handleCreate() {
+      addWorker(this.workerData).then(response => {
         if (response.code === 20000) {
           this.$message({
             message: '操作成功',

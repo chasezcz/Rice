@@ -125,8 +125,8 @@ export default {
     })
   },
   methods: {
-    handleCreate(data) {
-      addProduct(data).then(response => {
+    handleCreate() {
+      addProduct(this.productData).then(response => {
         if (response.code === 20000) {
           this.$message({
             message: '操作成功',

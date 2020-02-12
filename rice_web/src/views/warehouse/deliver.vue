@@ -6,7 +6,7 @@
         <span style="font-size:35px">配送员：</span>
         <el-select v-model="salers" class="newSelect" multiple filterable allow-create default-first-option placeholder="请选择配送员或自定义">
           <!-- eslint-disable-next-line -->
-          <el-option style="font-size:35px" v-for="saler in salerAll" :key="saler.value" :label="saler.label" :value="saler.value"></el-option>
+          <el-option style="font-size:35px" v-for="saler in salerAll" :key="saler.name" :label="saler.name" :value="saler.name"></el-option>
         </el-select>
 
       </el-form-item>
@@ -21,9 +21,9 @@
                 <span>{{ row.label }}</span>
               </template>
             </el-table-column>
-            <el-table-column label="库存量" prop="number">
+            <el-table-column label="库存量" prop="owned_number">
               <template slot-scope="{row}">
-                <span>{{ row.number }}</span>
+                <span>{{ row.owned_number }}</span>
               </template>
             </el-table-column>
             <el-table-column label="发出量">
@@ -83,10 +83,18 @@ export default {
         'remarks': this.remarks,
         'time': new Date().toDateString()
       }
-      delivery(data)
-      this.$message({
-        message: '发货成功！',
-        type: 'success'
+      delivery(data).then(response =>{
+        if (response.code === 20000) {
+          this.$message({
+            message: '发货成功',
+            type: 'success'
+          })
+        } else {
+          this.$message({
+            message: '操作失败' + response.data,
+            type: 'warning'
+          })
+        }
       })
       this.$router.push({ path: '/warehouse', query: this.otherQuery })
     }

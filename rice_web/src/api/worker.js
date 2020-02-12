@@ -11,7 +11,7 @@ export function addWorker(data) {
   return request({
     url: 'worker/add',
     method: 'get',
-    data
+    params: { data }
   })
 }
 
@@ -19,6 +19,6 @@ export function updateWorker(data) {
   return request({
     url: 'worker/update',
     method: 'get',
-    data
+    params: { data }
   })
 }

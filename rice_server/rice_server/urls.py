@@ -21,6 +21,7 @@ urlpatterns = [
     # 用户相关
     path('prod-api/user/login', user.login),
     path('prod-api/user/info', user.info),
+    path('prod-api/user/logout', user.logout),
     # 仓库相关
     path('prod-api/warehouse/getDeliveryInfo', warehouse.get_delivery_info),
     path('prod-api/warehouse/delivery', warehouse.delivery),

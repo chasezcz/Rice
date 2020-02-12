@@ -10,8 +10,8 @@ export function getDeliveryInfo() {
 export function delivery(data) {
   return request({
     url: '/warehouse/delivery',
-    method: 'POST',
-    data
+    method: 'get',
+    params: { data }
   })
 }
 
@@ -19,7 +19,7 @@ export function collect(data) {
   return request({
     url: '/warehouse/collect',
     method: 'get',
-    data
+    params: { data }
   })
 }
 
