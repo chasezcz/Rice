@@ -15,14 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from . import views
+from rice_server.views import *
 
 urlpatterns = [
     # 用户相关
-    path('prod-api/user/login', views.user_login),
-    path('prod-api/user/info', views.user_info),
+    path('prod-api/user/login', user.login),
+    path('prod-api/user/info', user.info),
     # 仓库相关
-    path('prod-api/warehouse/getDeliveryInfo/', views.get_delivery_info),
-    path('prod-api/warehouse/delivery/', views.delivery),
-    path('prod-api/warehouse/collect/', views.collect)
+    path('prod-api/warehouse/getDeliveryInfo', warehouse.get_delivery_info),
+    path('prod-api/warehouse/delivery', warehouse.delivery),
+    path('prod-api/warehouse/collect', warehouse.collect),
+    # 产品相关
+    path('prod-api/product/all', product.all),
+    path('prod-api/product/add', product.add),
+    # 职工相关
+    path('prod-api/worker/all', worker.all),
+    path('prod-api/worker/add', worker.add)
 ]

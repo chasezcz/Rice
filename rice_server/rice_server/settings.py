@@ -26,7 +26,7 @@ SECRET_KEY = '13tq^804-iybvv&u+w@t*ib5pj9c(qy)my$!msf0cx_ui67)^i'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'zeze.com'
+        # 'zeze.com'
 ]
 
 

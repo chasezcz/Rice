@@ -10,7 +10,7 @@ export function getAllWorkers() {
 export function addWorker(data) {
   return request({
     url: 'worker/add',
-    method: 'POST',
+    method: 'get',
     data
   })
 }
@@ -18,7 +18,7 @@ export function addWorker(data) {
 export function updateWorker(data) {
   return request({
     url: 'worker/update',
-    method: 'POST',
+    method: 'get',
     data
   })
 }

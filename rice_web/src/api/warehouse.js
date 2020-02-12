@@ -18,7 +18,7 @@ export function delivery(data) {
 export function collect(data) {
   return request({
     url: '/warehouse/collect',
-    method: 'POST',
+    method: 'get',
     data
   })
 }

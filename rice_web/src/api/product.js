@@ -10,7 +10,7 @@ export function getAllProducts() {
 export function addProduct(data) {
   return request({
       url: 'product/add',
-      method: 'POST',
+      method: 'get',
       data
   })
 }
@@ -18,7 +18,7 @@ export function addProduct(data) {
 export function updateProduct(data) {
   return request({
     url: 'product/update',
-    method: 'POST',
+    method: 'get',
     data
   })
 }
